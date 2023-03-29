@@ -16,6 +16,8 @@ module.exports.pdfGenerator = async (req, res) => {
   //craete pdf
 
   const createPdf = async () => {
+    console.log("in generate pdf function now before try");
+
     let browseer = await puppeteer.launch({
       executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
     });
