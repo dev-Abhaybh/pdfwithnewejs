@@ -16,7 +16,7 @@ module.exports.pdfGenerator = async (req, res) => {
 
   const createPdf = async () => {
     try {
-      console.log("in generate pdf function");
+      console.log("in generate pdf function now");
       let browseer = await puppeteer.launch();
       const page = await browseer.newPage();
       const content = await compile("abc", { user });
