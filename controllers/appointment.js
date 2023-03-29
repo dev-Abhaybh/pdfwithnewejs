@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 const path = require("path");
 const fs = require("fs-extra");
 const ejs = require("ejs");
+require("dotenv").config();
 module.exports.pdfGenerator = async (req, res) => {
   const user = req.body;
 
@@ -17,7 +18,10 @@ module.exports.pdfGenerator = async (req, res) => {
   const createPdf = async () => {
     try {
       console.log("in generate pdf function now");
-      let browseer = await puppeteer.launch();
+
+      let browseer = await puppeteer.launch({
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+      });
       const page = await browseer.newPage();
       const content = await compile("abc", { user });
       await page.setContent(content);
