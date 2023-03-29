@@ -40,7 +40,7 @@ module.exports.pdfGenerator = async (req, res) => {
       }
       console.log(pdf);
 
-      await browseer.close();
+      //await browseer.close();
     } catch (error) {
       console.log(error);
     }
