@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apportionment</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    img {
+      box-sizing: border-box;
+      margin-top: 20px;
+      margin-left: 20px;
+      width: 40.24px;
+      height: 38px;
+      background: #ffffff;
+    }
+    .header_hospital_name {
+      margin-top: 25px;
+      margin-left: 23.75px;
+      margin-right: 374px;
+    }
+    .header_date {
+      margin-top: 25px;
+      margin-left: 23.75px;
+    }
+    .header_hospital_address {
+      margin-left: 24px;
+    }
+    .receipt {
+      text-align: center;
+      margin-top: 21px;
+    }
+    .horizontalline {
+      margin-left: 28px;
+      margin-right: 27px;
+    }
+    .fields {
+      margin-left: 35px;
+      margin-right: 35px;
+    }
+  </style>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <% if(user) { %>
+    <header>
+      <div class="d-flex">
+        <img src="testlogo.jpg" alt="logo" />
+        <h2 class="header_hospital_name"><%= user.data.hospital_name %></h2>
+        <h6 class="header_date"><%= user.data.date %></h6>
+      </div>
+      <h6 class="header_hospital_address"><%= user.data.hospital_address %></h6>
+    </header>
+    <h2 class="receipt">RECEIPT</h2>
+    <hr class="horizontalline" />
+    <div class="fields">
+      <div class="row">
+        <div class="col-4">
+          <p>Date: <%= user.data.date %></p>
+          <p>Name: <%= user.data.patient_name %></p>
+          <p>Address: <%= user.data.address %></p>
+          <p>Doctor Name: <%= user.data.doctor_name %></p>
+        </div>
+
+        <div class="col-4">
+          <p>Health ID: <%= user.data.health_id %></p>
+          <p>Age/Sex: <%= user.data.age_sex %></p>
+          <p>Mobile No: <%= user.data.mobile_no %></p>
+          <p>Apportionment Date: <%= user.data.apportionment_date %></p>
+        </div>
+
+        <div class="col-4">
+          <p>Receipt No: <%= user.data.receipt_no %></p>
+          <p>Time: <%= user.data.time %></p>
+          <p>Ref by: <%= user.data.refby %></p>
+          <p>Apportionment Time: <%= user.data.apportionment_time %></p>
+        </div>
+      </div>
+    </div>
+    <hr class="horizontalline" />
+
+    <footer>
+      <!-- <hr class="horizontalline" /> -->
+      <div style="text-align: center">
+        Tel:<%= user.data.tel %> , Email:<%= user.data.email %>
+      </div>
+    </footer>
+    <% } %>
+  </body>
+</html>
