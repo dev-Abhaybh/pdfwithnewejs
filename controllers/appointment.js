@@ -52,14 +52,15 @@ module.exports.pdfGenerator = async (req, res) => {
   // res.contentType("application/pdf");
 
   // res.send(data);
-  console.log(data);
+  //console.log(data);
   const file = data.pdf;
 
   res.setHeader("Content-Length", data.stat.size);
   res.setHeader("Content-Type", "application/pdf");
   res.setHeader("Content-Disposition", "attachment; filename=quote.pdf");
   //console.log(file.pipe(res));
-  file.pipe(res);
+  // file.pipe(res);
+  return res.send(file);
   // res.setHeader("Content-Type", "application/pdf").send(pdf);
   // res.send(pdf);
 };
