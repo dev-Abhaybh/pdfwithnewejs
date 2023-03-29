@@ -16,12 +16,12 @@ module.exports.pdfGenerator = async (req, res) => {
   //craete pdf
 
   const createPdf = async () => {
+    let browseer = await puppeteer.launch({
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+    });
     try {
       console.log("in generate pdf function now");
 
-      let browseer = await puppeteer.launch({
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-      });
       const page = await browseer.newPage();
       const content = await compile("abc", { user });
       await page.setContent(content);
@@ -39,10 +39,10 @@ module.exports.pdfGenerator = async (req, res) => {
         return { file, stat };
       }
       console.log(pdf);
-
-      //await browseer.close();
     } catch (error) {
       console.log(error);
+    } finally {
+      await browseer.close();
     }
   };
   const data = await createPdf();
