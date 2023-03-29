@@ -30,8 +30,8 @@ module.exports.pdfGenerator = async (req, res) => {
       console.log(pdf);
 
       if (pdf) {
-        var file = await fs.createReadStream(process.cwd() + "/tmp/abc.pdf");
-        var stat = fs.statSync(process.cwd() + "/tmp/abc.pdf");
+        let file = await fs.createReadStream(process.cwd() + "/tmp/abc.pdf");
+        let stat = fs.statSync(process.cwd() + "/tmp/abc.pdf");
         return { file, stat };
       }
       console.log(pdf);
