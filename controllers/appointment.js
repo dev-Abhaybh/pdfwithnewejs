@@ -46,6 +46,7 @@ module.exports.pdfGenerator = async (req, res) => {
   // res.contentType("application/pdf");
 
   // res.send(data);
+  console.log(data);
   const file = data.file;
 
   res.setHeader("Content-Length", data.stat.size);
