@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apportionment</title>
+    <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    img {
+      box-sizing: border-box;
+      margin-top: 20px;
+      margin-left: 20px;
+      width: 40.24px;
+      height: 38px;
+      background: #ffffff;
+    }
+    .header_hospital_name {
+      margin-top: 25px;
+      margin-left: 23.75px;
+      margin-right: 374px;
+    }
+    .header_date {
+      margin-top: 25px;
+      margin-left: 23.75px;
+    }
+    .header_hospital_address {
+      margin-left: 24px;
+    }
+    .receipt {
+      text-align: center;
+      margin-top: 21px;
+    }
+    .horizontalline {
+      margin-left: 28px;
+      margin-right: 27px;
+    }
+    .row {
+      margin-left: 70px;
+      margin-right: 70px;
+    }
+    .srno{
+      /* margin-top: 5px; */
+    margin-right: 200px;
+    } 
+     .service{
+      /* margin-top: 5px; */
+      margin-right: 200px;
+    }
+    .amount{
+      /* margin-left: 45px; */
+    }
+    .test{
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .bold{
+      font-weight: bold;
+    }
+    .one{
+      margin-right: 260px;
+    }
+
+    .amountdata{
+      margin-left: 200px;
+    }
+   
+  </style>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    
+    <% if(data) { %>
+    <header>
+      <div class="d-flex">
+        <h2 class="header_hospital_name">Apex hospital</h2>
+        <h6 class="header_date">18/04/2023</h6>
+      </div>
+      <h6 class="header_hospital_address">Apex Hospital malviya nagar jaipur</h6>
+    </header>
+    <h2 class="receipt">RECEIPT</h2>
+    <hr class="horizontalline" />
+    
+        <div class="test">
+          <p><p class="bold">Abha ID:</p> <%= data.data.hidn %></p>
+          <p><p class="bold">Health Adress:</p> <%= data.data.phr %></p>
+          <p><p class="bold">Receipt No:</p> 50032</p>
+        </div>
+        
+        <div class="test">
+          <p><p class="bold">Name:</p> <%= data.data.name %></p>
+          <p><p class="bold">DOB:</p> <%= data.data.dob %></p>
+          <p><p class="bold">Age:</p><%= data.data.age %></p>
+          <p><p class="bold">Gender:</p><%= data.data.gender %></p>
+          <p><p class="bold">Time:</p> 2:25 PM</p>
+        </div>
+        
+        <div class="test">
+          <p ><p class="bold">City:</p> <%= data.data.dist_name %></p>
+          <p ><p class="bold">State:</p> <%= data.data.state_name %></p>
+          <p><p class="bold">Mobile No:</p> <%= data.data.mobile %></p>
+          <p><p class="bold">Ref by: </p>Other</p>
+        </div>
+      
+        <div class="test">
+          <p><p class="bold">Doctor Name:</p> <%= data.data.doctor %></p>
+          <p><p class="bold">Appointment Date:</p> <%= data.data.appointmentdate %></p>
+          <p><p class="bold">Appointment Time:</p> <%= data.data.appointmenttime %></p>
+        </div>
+      </div>
+      
+      
+   
+    <hr class="horizontalline" />
+       
+          <div class="test">
+            <h5 class="srno">Sr No</h5> 
+            <h5 class="service">
+              Service Rendered
+            </h5>
+            <h5 class="amount">
+              Amount
+            </h5>
+          </div>
+       
+   <div class="test">
+     <p class="one">1</p>
+     <p>Consultation</p>
+     <p class="amountdata"><%= data.data.payment %></p>
+    </div>
+ 
+    
+    
+ 
+
+  <footer>
+      <hr class="horizontalline" />
+      <div style="text-align: center">Tel:012454455 , Email:abc@uhj.com</div>
+      <hr class="horizontalline" />
+    </footer>
+    <% } %>
+  </body>
+</html>
